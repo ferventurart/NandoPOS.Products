@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Abstractions\" />
+    <None Remove="MediatR" />
+    <None Remove="Marten" />
+    <None Remove="Abstractions\Messaging\" />
+    <None Remove="ServiceLifetimes\" />
+    <None Remove="Taxes\" />
+    <None Remove="Taxes\CreateTax\" />
+    <None Remove="Taxes\GetTaxes\" />
+    <None Remove="Taxes\UpdateTax\" />
+    <None Remove="Behaviors\" />
+    <None Remove="FluentValidation" />
+    <None Remove="Taxes\GetTax\" />
+    <None Remove="ProductCategories\" />
+    <None Remove="ProductCategories\CreateProductCategory\" />
+    <None Remove="ProductCategories\UpdateProductCategory\" />
+    <None Remove="ProductCategories\GetProductCategory\" />
+    <None Remove="ProductCategories\GetProductCategories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Abstractions\Messaging\" />
+    <Folder Include="ServiceLifetimes\" />
+    <Folder Include="Taxes\" />
+    <Folder Include="Taxes\CreateTax\" />
+    <Folder Include="Taxes\GetTaxes\" />
+    <Folder Include="Taxes\UpdateTax\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Taxes\GetTax\" />
+    <Folder Include="ProductCategories\" />
+    <Folder Include="ProductCategories\CreateProductCategory\" />
+    <Folder Include="ProductCategories\UpdateProductCategory\" />
+    <Folder Include="ProductCategories\GetProductCategory\" />
+    <Folder Include="ProductCategories\GetProductCategories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="Marten" Version="5.11.0" />
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+  </ItemGroup>
+</Project>

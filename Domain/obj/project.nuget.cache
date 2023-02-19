@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "mAPTgETKsKJ5bFPeqQe8yo2N2YzpefpAYA6qAiEixzJPkEzEHdA0OsX0dGVg055esrocZni26OqZag5LXmZDNA==",
+  "success": true,
+  "projectFilePath": "/Users/ferventurart/Projects/NandoPOS.Products/Domain/Domain.csproj",
+  "expectedPackageFiles": [
+    "/Users/ferventurart/.nuget/packages/mediatr/10.0.1/mediatr.10.0.1.nupkg.sha512",
+    "/Users/ferventurart/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
+    "/Users/ferventurart/.nuget/packages/sonaranalyzer.csharp/8.52.0.60960/sonaranalyzer.csharp.8.52.0.60960.nupkg.sha512",
+    "/Users/ferventurart/.nuget/packages/stylecop.analyzers/1.2.0-beta.435/stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
+    "/Users/ferventurart/.nuget/packages/stylecop.analyzers.unstable/1.2.0.435/stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+  ],
+  "logs": []
+}

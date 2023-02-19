@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Carter" />
+    <None Remove="Mapster" />
+    <None Remove="Abstractions\" />
+    <None Remove="Controllers\" />
+    <None Remove="Contracts\" />
+    <None Remove="Contracts\Taxes\" />
+    <None Remove="Contracts\ProductCategories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Carter" Version="7.0.0" />
+    <PackageReference Include="Mapster" Version="7.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="Contracts\Taxes\" />
+    <Folder Include="Contracts\ProductCategories\" />
+  </ItemGroup>
+</Project>
