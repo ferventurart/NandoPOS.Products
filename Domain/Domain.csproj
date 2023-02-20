@@ -12,12 +12,14 @@
     <None Remove="Abstraction\" />
     <None Remove="MediatR" />
     <None Remove="Exceptions\" />
+    <None Remove="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Products\" />
     <Folder Include="Shared\" />
     <Folder Include="Abstraction\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />

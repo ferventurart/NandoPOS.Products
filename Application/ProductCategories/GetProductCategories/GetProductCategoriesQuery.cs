@@ -1,5 +1,4 @@
 ﻿using Application.Abstractions.Messaging;
-using Application.Taxes.GetTaxes;
 
 namespace Application.ProductCategories.GetProductCategories;
 

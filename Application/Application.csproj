@@ -24,6 +24,10 @@
     <None Remove="ProductCategories\UpdateProductCategory\" />
     <None Remove="ProductCategories\GetProductCategory\" />
     <None Remove="ProductCategories\GetProductCategories\" />
+    <None Remove="Products\" />
+    <None Remove="Products\CreateProduct\" />
+    <None Remove="Products\GetProducts\" />
+    <None Remove="Products\GetProduct\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -40,6 +44,10 @@
     <Folder Include="ProductCategories\UpdateProductCategory\" />
     <Folder Include="ProductCategories\GetProductCategory\" />
     <Folder Include="ProductCategories\GetProductCategories\" />
+    <Folder Include="Products\" />
+    <Folder Include="Products\CreateProduct\" />
+    <Folder Include="Products\GetProducts\" />
+    <Folder Include="Products\GetProduct\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
