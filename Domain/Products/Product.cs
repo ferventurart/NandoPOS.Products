@@ -1,4 +1,5 @@
 ﻿using Domain.Abstractions;
+using MediatR;
 
 namespace Domain.Products;
 
@@ -127,27 +128,40 @@ public class Product : AggregateRoot
 
     public void CalculateEarn() => Earn = Price - Cost;
 
-    public void AddSize(string size)
+    public void AddSizes(List<string> sizes)
     {
-        if (!string.IsNullOrEmpty(size) && size.Length <= 3 && !Sizes.Any(s => s == size))
+        if (sizes.Count > 0)
         {
-            Sizes.Add(size);
+            foreach (var size in sizes)
+            {
+                AddSize(size);
+            }
         }
     }
 
-    public void AddColor(string color)
+    public void AddColors(List<string> colors)
     {
-        if (!string.IsNullOrEmpty(color) && color.Length <= 6 && !Colors.Any(s => s == color))
+        if (colors.Count > 0)
         {
-            Colors.Add(color);
+            foreach (var color in colors)
+            {
+                AddColor(color);
+            }
         }
     }
 
-    public void AddTax(Tax tax)
+    public void AddTaxes(IReadOnlyList<Tax>? taxes, List<Guid> taxesId)
     {
-        if (tax is not null && !Taxes.Any(s => s.Id == tax.Id))
+        if (taxes?.Count > 0 && taxesId.Count > 0)
         {
-            Taxes.Add(tax);
+            foreach (var id in taxesId)
+            {
+                var tax = taxes.First(t => t.Id == id);
+                if (tax is not null)
+                {
+                    AddTax(tax);
+                }
+            }
         }
     }
 
@@ -156,6 +170,30 @@ public class Product : AggregateRoot
         if (ProductCategory != productCategory)
         {
             ProductCategory = productCategory;
+        }
+    }
+
+    private void AddTax(Tax tax)
+    {
+        if (tax is not null && !Taxes.Any(s => s.Id == tax.Id))
+        {
+            Taxes.Add(tax);
+        }
+    }
+
+    private void AddSize(string size)
+    {
+        if (!string.IsNullOrEmpty(size) && size.Length <= 3 && !Sizes.Any(s => s == size))
+        {
+            Sizes.Add(size);
+        }
+    }
+
+    private void AddColor(string color)
+    {
+        if (!string.IsNullOrEmpty(color) && color.Length <= 6 && !Colors.Any(s => s == color))
+        {
+            Colors.Add(color);
         }
     }
 }

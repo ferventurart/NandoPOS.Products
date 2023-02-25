@@ -1,4 +1,5 @@
-﻿using Application.Abstractions.Messaging;
+﻿using Application.Abstractions.EventBus;
+using Application.Abstractions.Messaging;
 using Domain.Products;
 using Domain.Shared;
 using Marten;
@@ -8,10 +9,12 @@ namespace Application.Products.CreateProduct;
 internal sealed class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, Guid>
 {
     private readonly IDocumentSession _session;
+    private readonly IEventBus _eventBus;
 
-    public CreateProductCommandHandler(IDocumentSession session)
+    public CreateProductCommandHandler(IDocumentSession session, IEventBus eventBus)
     {
         _session = session;
+        _eventBus = eventBus;
     }
 
     public async Task<Result<Guid>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
@@ -37,37 +40,33 @@ internal sealed class CreateProductCommandHandler : ICommandHandler<CreateProduc
             request.StockMax,
             productCategory);
 
-        if (request.Sizes.Count > 0)
-        {
-            foreach (var size in request.Sizes)
-            {
-                product.AddSize(size);
-            }
-        }
+        product.AddSizes(request.Sizes);
+        product.AddColors(request.Colors);
 
-        if (request.Colors.Count > 0)
-        {
-            foreach (var color in request.Colors)
-            {
-                product.AddColor(color);
-            }
-        }
-
-        if (request.Taxes.Count > 0)
-        {
-            foreach (var taxId in request.Taxes)
-            {
-                Tax? tax = await _session.LoadAsync<Tax>(taxId, cancellationToken);
-                if (tax is not null)
-                {
-                    product.AddTax(tax);
-                }
-            }
-        }
+        var taxes = await _session.Query<Tax>().ToListAsync(cancellationToken);
+        product.AddTaxes(taxes, request.Taxes);
 
         _session.Store<Product>(product);
 
         await _session.SaveChangesAsync(cancellationToken);
+
+        await _eventBus.PublishAsync(
+                new ProductCreatedEvent
+                {
+                    Id = product.Id,
+                    Barcode = product.Barcode,
+                    Sku = product.Sku,
+                    Name = product.Name,
+                    Description = product.Description,
+                    Price = product.Price,
+                    Image = product.Image,
+                    StockMin = product.StockMin,
+                    StockMax = product.StockMax,
+                    Sizes = product.Sizes,
+                    Colors = product.Colors,
+                    ProductCategory = product.ProductCategory
+                },
+                cancellationToken);
 
         return product.Id;
     }

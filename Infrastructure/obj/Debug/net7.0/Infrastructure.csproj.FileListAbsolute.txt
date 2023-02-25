@@ -1,0 +1,17 @@
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/bin/Debug/net7.0/Infrastructure.deps.json
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/bin/Debug/net7.0/Infrastructure.dll
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/bin/Debug/net7.0/Infrastructure.pdb
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/bin/Debug/net7.0/Application.dll
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/bin/Debug/net7.0/Domain.dll
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/bin/Debug/net7.0/Application.pdb
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/bin/Debug/net7.0/Domain.pdb
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.AssemblyReference.cache
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/Infrastructure.AssemblyInfoInputs.cache
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/Infrastructure.AssemblyInfo.cs
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.CoreCompileInputs.cache
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.CopyComplete
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/Infrastructure.dll
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/refint/Infrastructure.dll
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/Infrastructure.pdb
+/Users/ferventurart/Projects/NandoPOS.Products/Infrastructure/obj/Debug/net7.0/ref/Infrastructure.dll

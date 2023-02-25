@@ -55,33 +55,11 @@ internal sealed class UpdateProductCommandHandler : ICommandHandler<UpdateProduc
             product.ChangeUseInventory();
         }
 
-        if (request.Sizes.Count > 0)
-        {
-            foreach (var size in request.Sizes)
-            {
-                product.AddSize(size);
-            }
-        }
+        product.AddSizes(request.Sizes);
+        product.AddColors(request.Colors);
 
-        if (request.Colors.Count > 0)
-        {
-            foreach (var color in request.Colors)
-            {
-                product.AddColor(color);
-            }
-        }
-
-        if (request.Taxes.Count > 0)
-        {
-            foreach (var taxId in request.Taxes)
-            {
-                Tax? tax = await _session.LoadAsync<Tax>(taxId, cancellationToken);
-                if (tax is not null)
-                {
-                    product.AddTax(tax);
-                }
-            }
-        }
+        var taxes = await _session.Query<Tax>().ToListAsync(cancellationToken);
+        product.AddTaxes(taxes, request.Taxes);
 
         _session.Update(product);
 

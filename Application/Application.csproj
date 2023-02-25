@@ -31,6 +31,7 @@
     <None Remove="Products\UpdateProduct\" />
     <None Remove="Taxes\DeleteTax\" />
     <None Remove="ProductCategories\DeleteProductCategory\" />
+    <None Remove="Abstractions\EventBus\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -54,6 +55,7 @@
     <Folder Include="Products\UpdateProduct\" />
     <Folder Include="Taxes\DeleteTax\" />
     <Folder Include="ProductCategories\DeleteProductCategory\" />
+    <Folder Include="Abstractions\EventBus\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
@@ -62,5 +64,6 @@
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="Marten" Version="5.11.0" />
     <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="MassTransit" Version="8.0.13" />
   </ItemGroup>
 </Project>
