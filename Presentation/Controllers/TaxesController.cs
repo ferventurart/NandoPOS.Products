@@ -1,4 +1,5 @@
 ﻿using Application.Taxes.CreateTax;
+using Application.Taxes.DeleteTax;
 using Application.Taxes.GetTax;
 using Application.Taxes.GetTaxes;
 using Application.Taxes.UpdateTax;
@@ -67,6 +68,23 @@ public sealed class TaxesController : ApiController
         }
 
         var command = request.Adapt<UpdateTaxCommand>();
+
+        var result = await Sender.Send(command, cancellationToken);
+
+        if (result.IsFailure)
+        {
+            return HandleFailure(result);
+        }
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(
+    Guid id,
+    CancellationToken cancellationToken)
+    {
+        var command = new DeleteTaxCommand(id);
 
         var result = await Sender.Send(command, cancellationToken);
 
