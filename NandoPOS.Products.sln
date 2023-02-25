@@ -12,9 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{ABAB0835-1D44-4AD6-BF4C-4FCADE5333AA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4C820D28-A9DC-41E2-AE2B-08D5696D0144}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose.yaml = docker-compose.yaml
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{4EF69435-FEF6-45E9-BFC7-7E41605671D1}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,8 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{FD012A96-B207-4E76-B190-E99A852CA36A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CBD33D5A-F5A1-4EC1-BA9D-B906C6B5DE05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
