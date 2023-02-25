@@ -30,6 +30,7 @@
     <None Remove="Products\GetProduct\" />
     <None Remove="Products\UpdateProduct\" />
     <None Remove="Taxes\DeleteTax\" />
+    <None Remove="ProductCategories\DeleteProductCategory\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -52,6 +53,7 @@
     <Folder Include="Products\GetProduct\" />
     <Folder Include="Products\UpdateProduct\" />
     <Folder Include="Taxes\DeleteTax\" />
+    <Folder Include="ProductCategories\DeleteProductCategory\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />

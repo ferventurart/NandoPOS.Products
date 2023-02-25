@@ -1,5 +1,6 @@
 ﻿using Aplication.ProductCategories.GetProductCategory;
 using Application.ProductCategories.CreateProductCategory;
+using Application.ProductCategories.DeleteProductCategory;
 using Application.ProductCategories.GetProductCategories;
 using Application.ProductCategories.GetProductCategory;
 using Application.ProductCategories.UpdateProductCategory;
@@ -68,6 +69,23 @@ public sealed class ProductCategoriesController : ApiController
         }
 
         var command = request.Adapt<UpdateProductCategoryCommand>();
+
+        var result = await Sender.Send(command, cancellationToken);
+
+        if (result.IsFailure)
+        {
+            return HandleFailure(result);
+        }
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(
+    Guid id,
+    CancellationToken cancellationToken)
+    {
+        var command = new DeleteProductCategoryCommand(id);
 
         var result = await Sender.Send(command, cancellationToken);
 
