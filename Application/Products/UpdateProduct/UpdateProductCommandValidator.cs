@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace Application.Products.CreateProduct;
+namespace Application.Products.UpdateProduct;
 
-public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
 {
-    public CreateProductCommandValidator()
+    public UpdateProductCommandValidator()
     {
         RuleFor(x => x.Barcode)
             .MaximumLength(20);

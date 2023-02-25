@@ -18,7 +18,7 @@ internal sealed class UpdateTaxCommandHandler : ICommandHandler<UpdateTaxCommand
     {
         var tax = await _session.LoadAsync<Tax>(request.Id, cancellationToken);
 
-        if (tax == null)
+        if (tax is null)
         {
             return Result.Failure(new Error(
                     "Tax.NotFound",

@@ -1,6 +1,7 @@
 ﻿namespace Presentation.Contracts.Products;
 
-public record CreateProductRequest(
+public record UpdateProductRequest(
+    Guid Id,
     string? Barcode,
     string? Sku,
     string Name,

@@ -1,6 +1,7 @@
 ﻿using Application.Products.CreateProduct;
 using Application.Products.GetProduct;
 using Application.Products.GetProducts;
+using Application.Products.UpdateProduct;
 using Domain.Shared;
 using Mapster;
 using MediatR;
@@ -52,5 +53,28 @@ public sealed class ProductsController : ApiController
             nameof(GetById),
             new { id = result.Value },
             result.Value);
+    }
+
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(
+    Guid id,
+    [FromBody] UpdateProductRequest request,
+    CancellationToken cancellationToken)
+    {
+        if (id != request.Id)
+        {
+            return BadRequest("Identifier mismatch error");
+        }
+
+        var command = request.Adapt<UpdateProductCommand>();
+
+        var result = await Sender.Send(command, cancellationToken);
+
+        if (result.IsFailure)
+        {
+            return HandleFailure(result);
+        }
+
+        return NoContent();
     }
 }

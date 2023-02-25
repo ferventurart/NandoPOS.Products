@@ -28,6 +28,7 @@
     <None Remove="Products\CreateProduct\" />
     <None Remove="Products\GetProducts\" />
     <None Remove="Products\GetProduct\" />
+    <None Remove="Products\UpdateProduct\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -48,6 +49,7 @@
     <Folder Include="Products\CreateProduct\" />
     <Folder Include="Products\GetProducts\" />
     <Folder Include="Products\GetProduct\" />
+    <Folder Include="Products\UpdateProduct\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />

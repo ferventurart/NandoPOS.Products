@@ -1,6 +1,9 @@
-﻿namespace Presentation.Contracts.Products;
+﻿using Application.Abstractions.Messaging;
 
-public record CreateProductRequest(
+namespace Application.Products.UpdateProduct;
+
+public record UpdateProductCommand(
+    Guid Id,
     string? Barcode,
     string? Sku,
     string Name,
@@ -14,4 +17,5 @@ public record CreateProductRequest(
     List<string> Sizes,
     List<string> Colors,
     List<Guid> Taxes,
-    Guid ProductCategoryId);
+    Guid ProductCategoryId,
+    bool Active) : ICommand;

@@ -14,6 +14,8 @@ public record ProductResponse(
     decimal Earn,
     string? Image,
     bool UseInventory,
+    decimal? StockMin,
+    decimal? StockMax,
     IReadOnlyCollection<string> Sizes,
     IReadOnlyCollection<string> Colors,
     ProductCategoryResponse ProductCategory,

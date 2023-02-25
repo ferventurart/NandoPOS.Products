@@ -39,6 +39,8 @@ internal sealed class GetProductByIdQueryHandler
             product.Earn,
             product.Image,
             product.UseInventory,
+            product.StockMin,
+            product.StockMax,
             product.Sizes,
             product.Colors,
             new ProductCategoryResponse(

@@ -11,6 +11,8 @@ public record CreateProductCommand(
     decimal Price,
     string? Image,
     bool UseInventory,
+    decimal? StockMin,
+    decimal? StockMax,
     List<string> Sizes,
     List<string> Colors,
     List<Guid> Taxes,

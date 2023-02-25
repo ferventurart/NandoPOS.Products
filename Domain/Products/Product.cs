@@ -4,7 +4,7 @@ namespace Domain.Products;
 
 public class Product : AggregateRoot
 {
-    public Product(string? barcode, string? sku, string name, string? description, decimal cost, decimal price, bool useInventory, ProductCategory productCategory)
+    public Product(string? barcode, string? sku, string name, string? description, decimal cost, decimal price, bool useInventory, decimal? stockMin, decimal? stockMax, ProductCategory productCategory)
     {
         Barcode = barcode;
         Sku = sku;
@@ -14,6 +14,8 @@ public class Product : AggregateRoot
         Price = price;
         Earn = Price - Cost;
         UseInventory = useInventory;
+        StockMin = stockMin;
+        StockMax = stockMax;
         Sizes = new();
         Colors = new();
         Taxes = new();
@@ -41,6 +43,10 @@ public class Product : AggregateRoot
 
     public bool UseInventory { get; set; }
 
+    public decimal? StockMin { get; set; }
+
+    public decimal? StockMax { get; set; }
+
     public List<string> Sizes { get; set; }
 
     public List<string> Colors { get; set; }
@@ -53,7 +59,9 @@ public class Product : AggregateRoot
 
     public void ChangeStatus() => Active = !Active;
 
-    public void ChangeBarcode(string barcode)
+    public void ChangeUseInventory() => UseInventory = !UseInventory;
+
+    public void ChangeBarcode(string? barcode)
     {
         if (!string.IsNullOrWhiteSpace(barcode) && Barcode != barcode)
         {
@@ -61,7 +69,7 @@ public class Product : AggregateRoot
         }
     }
 
-    public void ChangeSku(string sku)
+    public void ChangeSku(string? sku)
     {
         if (!string.IsNullOrWhiteSpace(sku) && Sku != sku)
         {
@@ -77,7 +85,7 @@ public class Product : AggregateRoot
         }
     }
 
-    public void ChangeDescription(string description)
+    public void ChangeDescription(string? description)
     {
         if (!string.IsNullOrWhiteSpace(description) && Description != description)
         {
@@ -101,6 +109,24 @@ public class Product : AggregateRoot
         }
     }
 
+    public void ChangeStockMin(decimal? stockMin)
+    {
+        if (stockMin is not null && StockMin != stockMin && StockMax is not null && stockMin < StockMax)
+        {
+            StockMin = stockMin;
+        }
+    }
+
+    public void ChangeStockMax(decimal? stockMax)
+    {
+        if (stockMax is not null && StockMax != stockMax && StockMin is not null && stockMax > StockMin)
+        {
+            StockMax = stockMax;
+        }
+    }
+
+    public void CalculateEarn() => Earn = Price - Cost;
+
     public void AddSize(string size)
     {
         if (!string.IsNullOrEmpty(size) && size.Length <= 3 && !Sizes.Any(s => s == size))
@@ -119,9 +145,17 @@ public class Product : AggregateRoot
 
     public void AddTax(Tax tax)
     {
-        if (tax is not null && !Taxes.Any(s => s == tax))
+        if (tax is not null && !Taxes.Any(s => s.Id == tax.Id))
         {
             Taxes.Add(tax);
+        }
+    }
+
+    public void ChangeProductCategory(ProductCategory productCategory)
+    {
+        if (ProductCategory != productCategory)
+        {
+            ProductCategory = productCategory;
         }
     }
 }

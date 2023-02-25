@@ -33,6 +33,8 @@ internal sealed class CreateProductCommandHandler : ICommandHandler<CreateProduc
             request.Cost,
             request.Price,
             request.UseInventory,
+            request.StockMin,
+            request.StockMax,
             productCategory);
 
         if (request.Sizes.Count > 0)

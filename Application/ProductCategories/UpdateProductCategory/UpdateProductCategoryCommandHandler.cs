@@ -18,7 +18,7 @@ internal sealed class UpdateProductCategoryCommandHandler : ICommandHandler<Upda
     {
         var productCategory = await _session.LoadAsync<ProductCategory>(request.Id, cancellationToken);
 
-        if (productCategory == null)
+        if (productCategory is null)
         {
             return Result.Failure(new Error(
                     "ProductCategory.NotFound",
