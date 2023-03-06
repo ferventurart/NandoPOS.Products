@@ -2,7 +2,10 @@
 
 public class Tax
 {
-    public Tax(string name, string shortName, decimal percentage)
+    public Tax(
+        string name,
+        string shortName,
+        decimal percentage)
     {
         Name = name;
         ShortName = shortName;

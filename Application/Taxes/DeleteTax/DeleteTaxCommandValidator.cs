@@ -6,6 +6,7 @@ public class DeleteTaxCommandValidator : AbstractValidator<DeleteTaxCommand>
 {
     public DeleteTaxCommandValidator()
     {
-        RuleFor(x => x.Id).NotEmpty();
+        RuleFor(x => x.Id)
+            .NotEmpty();
     }
 }

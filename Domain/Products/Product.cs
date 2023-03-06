@@ -5,7 +5,17 @@ namespace Domain.Products;
 
 public class Product : AggregateRoot
 {
-    public Product(string? barcode, string? sku, string name, string? description, decimal cost, decimal price, bool useInventory, decimal? stockMin, decimal? stockMax, ProductCategory productCategory)
+    public Product(
+        string? barcode,
+        string? sku,
+        string name,
+        string? description,
+        decimal cost,
+        decimal price,
+        bool useInventory,
+        decimal? stockMin,
+        decimal? stockMax,
+        ProductCategory productCategory)
     {
         Barcode = barcode;
         Sku = sku;
